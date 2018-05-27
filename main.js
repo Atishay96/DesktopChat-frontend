@@ -16,7 +16,7 @@ let knex = require("knex")({
 });
 
 
-// process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = 'production';
 knex.schema.createTable('Users', function(table) {
 	  table.increments('id');
 	  table.string('authToken');
