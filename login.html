@@ -1,0 +1,64 @@
+<!Doctype html>
+<html lang="en" ng-app="chat" ng-controller="ChatController" ng-init="checkFlag();countryCode='+'" ng-cloak>
+  <head>
+  <title>Sterling</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Boostrap -->
+  <link rel="icon" href="#" type="image/ico"> 
+  <link rel="stylesheet" href="./login/bootstrap.min.css">
+
+  <!-- country code -->
+  <link rel="stylesheet" href="./assets/intl-tel-input-master/build/css/intlTelInput.css">
+
+  <!-- Style Css -->
+   <link rel="stylesheet" type="text/css" href="./login/style.css">
+
+
+  </head>
+  <body>
+  	<div class="container">
+        <div id="card" class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img ng-show="!signUpFlag" id="profile-img" class="profile-img-card no" src="./login/images.png" />
+            <!-- <p id="profile-name" class="profile-name-card"></p> -->
+            <form name="check" class="form-signin" ng-submit="submitted=true;submit();" novalidate="novalidate">
+            
+            <div ng-show="signUpFlag" ngf-drop="uploadFiles($files)" class="drop-box pointer" ngf-select ngf-drag-over-class="'dragover'" ng-model="profilePicture" ngf-multiple="false" ngf-pattern="'image/*,application/pdf'"><img id="profile-name" class="profile-img-card" ngf-thumbnail="profilePicture || './login/icon.png'"></div>
+                <input type="tel" id="countryCode" name="countryCode" ng-show="signUpFlag" ng-model="countryCode" placeholder="Country Code" class="form-control no po" required>            
+                <!-- <span id="reauth-email" class="reauth-email"></span> -->
+                <input type="number" id="inputEmail " min="0" max="999999999999" name="phoneNumber" ng-model="phoneNumber" oninput="this.value=(this.value   < Number(this.min) || this.value   > Number(this.max))  ? '' : this.value;" class="form-control no po no-spin" placeholder="Enter your mobile number" autofocus required>
+                <!-- <span class="error" && (phoneNumber.$touched || submitted ) && !phoneNumber.length">Please enter your mobile number(without country code)</span> -->
+                <input type="password" id="inputPassword" ng-show="(flag || signUpFlag)" class="form-control no po" name="password" ng-model="password" placeholder="Password" required>
+                <!-- <span class="error" ng-show="flag && (password.$touched || submitted ) && !password.length">Please enter your password</span> -->
+                <input type="password" id="confirmPassword" ng-show="signUpFlag" class="form-control no po" name="confirmPassword" ng-model="confirmPassword" placeholder="Confirm Password" required>
+                <input type="text" name="name" ng-show="signUpFlag" ng-model="name" placeholder="Name" class="form-control no po" required>
+                <input type="text" name="email" ng-show="signUpFlag" ng-model="email" placeholder="Email" class="form-control no po" required>
+                <button class="btn btn-lg btn-primary btn-block no btn-signin pointer" type="submit">Enter the maze</button>
+            </form>
+            <!-- /form -->
+            <!-- <a href="#" class="forgot-password">
+                Forgot the password?
+            </a> -->
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+  </body>
+  <!-- for jquery to work  -->
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+  <script>
+    var electron = require('electron');
+  </script>
+  <!-- JavaScripts -->
+  <script type="text/javascript" src="./login/jquery.min.js" ></script>
+  <script type="text/javascript" src="./login/main.js"></script>
+  <script type="text/javascript" src="./login/bootstrap.min.js"></script>
+  <!-- Angular JS -->
+  <script type="text/javascript" src="./angularjs/angular.min.js"></script>
+  <script type="text/javascript" src="./app.js"></script>
+  <script type="text/javascript" src="./controllers/ChatController.js"></script>  
+  <script src="./assets/intl-tel-input-master/build/js/intlTelInput.js"></script>
+  <script type="text/javascript" src="./login/ng-file-upload-shim.min.js"></script>
+  <script type="text/javascript" src="./login/ng-file-upload.min.js"></script>
+  <!-- FontAwesome -->
+  <script src="https://use.fontawesome.com/4b516afaf9.js"></script>  
+</html>
