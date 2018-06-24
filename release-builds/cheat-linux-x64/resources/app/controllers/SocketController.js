@@ -3,6 +3,7 @@ app.controller('SocketController',async function($scope,$http){
 	const {ipcRenderer} = electron;
 	$scope.allWindows = [];
 	$scope.original = [];
+	$scope.waiting = false;
 	await getUser();
 	ipcRenderer.on('userDetails', function(e, row){
     	$scope.token = row.authToken;
